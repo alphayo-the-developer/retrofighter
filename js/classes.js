@@ -43,8 +43,14 @@ class Sprite {
     )
   }
 
-  restart() {
-    this.position.x = this.startpositionX
+  restart(name) {
+    if(name == 'player'){
+      this.position.x = startP1;
+
+    }else {
+      this.position.x = startP2;
+
+    }
   }
 
   animateFrames() {
@@ -103,7 +109,7 @@ class Fighter extends Sprite {
     }
     this.color = color
     this.isAttacking
-    this.health = 100
+    this.health = 40
     this.framesCurrent = 0
     this.framesElapsed = 0
     this.framesHold = 5
@@ -190,7 +196,7 @@ class Fighter extends Sprite {
   }
 
   takeHit() {
-    this.health -= 20
+    this.health -= 10
 
     if (this.health <= 0) {
       this.switchSprite('death')

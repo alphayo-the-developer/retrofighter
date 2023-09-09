@@ -25,7 +25,7 @@ const settings = {
       framesMax: 8,
       scale: 5,
       offset: {
-        x: -100,
+        x: 0,
         y: 460
       },
       sprites: {
@@ -70,7 +70,8 @@ const settings = {
         width: 170,
         height: 50
       },
-      collisionOffset: 500
+      positionOffset: 550,
+      collisionOffset: 1150
     },
     kenji: {
       position: {
@@ -206,7 +207,9 @@ const settings = {
         }
         
       },
-      collisionOffset: 200
+      positionOffset: 340,
+      collisionOffset: 750,
+
 
       
     },
@@ -337,7 +340,8 @@ const settings = {
         width: 170,
         height: 50
       },
-      collisionOffset: 100
+      positionOffset: 70,
+      collisionOffset: 200,
     },
     martial: {
       position: {
@@ -402,7 +406,8 @@ const settings = {
         width: 170,
         height: 50
       },
-      collisionOffset: 500
+      positionOffset: 170,
+      collisionOffset: 400
     },
     commander: {
       position: {
@@ -467,7 +472,8 @@ const settings = {
         width: 170,
         height: 50
       },
-      collisionOffset: 200
+      positionOffset: 0,
+      collisionOffset: 50
     }
   },
   backgrounds: {
@@ -477,8 +483,8 @@ const settings = {
         y: 0
       },
       imageSrc: './img/background forest.png',
-      scale: 0.79,
-      offset: { x: 0, y: 170 }
+      scale: 1,
+      offset: { x: 0, y: 0 }
     },
     creepy: {
       position: {
@@ -958,7 +964,7 @@ const mobileSettings = {
       },
       imageSrc: './img/background green.png',
       scale: 0.65,
-      offset: { x: 0, y: 300 }
+      offset: { x: 0, y: 170 }
     },
     red: {
       position: {
@@ -975,153 +981,153 @@ const mobileSettings = {
 // desktop character settings
 
 
-if (gamesettings.platform === 'desktop') {
+// if (gamesettings.platform === 'desktop') {
 
-  switch (player1) {
-    case 'samuraiMack':
-      var avatar1 = settings.players.samuraiMack
+//   switch (player1) {
+//     case 'samuraiMack':
+//       var avatar1 = settings.players.samuraiMack
   
-      break
+//       break
   
-    case 'kenji':
-      var avatar1 = settings.players.kenji
+//     case 'kenji':
+//       var avatar1 = settings.players.kenji
   
-      break
-    case 'wizard':
-      var avatar1 = settings.players.wizard
+//       break
+//     case 'wizard':
+//       var avatar1 = settings.players.wizard
   
-      break
-    case 'martial':
-      var avatar1 = settings.players.martial
+//       break
+//     case 'martial':
+//       var avatar1 = settings.players.martial
   
-      break
-    case 'commander':
-      var avatar1 = settings.players.commander
+//       break
+//     case 'commander':
+//       var avatar1 = settings.players.commander
   
-      break
-    case 'viking':
-      var avatar1 = settings.players.viking
+//       break
+//     case 'viking':
+//       var avatar1 = settings.players.viking
   
-      break
-      case 'wizard2':
-      var avatar1 = settings.players.wizard2
+//       break
+//       case 'wizard2':
+//       var avatar1 = settings.players.wizard2
   
-      break
-    default:
-      break
-  }
+//       break
+//     default:
+//       break
+//   }
   
-  switch (player2) {
-    case 'samuraiMack':
-      var avatar12 = settings.players.samuraiMack
+//   switch (player2) {
+//     case 'samuraiMack':
+//       var avatar12 = settings.players.samuraiMack
   
-      break
+//       break
   
-    case 'kenji':
-      var avatar2 = settings.players.kenji
+//     case 'kenji':
+//       var avatar2 = settings.players.kenji
   
-      break
-    case 'wizard':
-      var avatar2 = settings.players.wizard
+//       break
+//     case 'wizard':
+//       var avatar2 = settings.players.wizard
   
-      break
-    case 'martial':
-      var avatar2 = settings.players.martial
+//       break
+//     case 'martial':
+//       var avatar2 = settings.players.martial
   
-      break
-    case 'commander':
-      var avatar2 = settings.players.commander
+//       break
+//     case 'commander':
+//       var avatar2 = settings.players.commander
   
-      break
-    case 'viking':
-      var avatar2 = settings.players.viking
+//       break
+//     case 'viking':
+//       var avatar2 = settings.players.viking
   
-      break
-      case 'wizard2':
-      var avatar2 = settings.players.wizard2
+//       break
+//       case 'wizard2':
+//       var avatar2 = settings.players.wizard2
   
-      break
-    default:
-      break
-  }
+//       break
+//     default:
+//       break
+//   }
 
-}
+// }
 
 
 
 
 // mobile character settings
-if (gamesettings.platform === 'mobile') {
+// if (gamesettings.platform === 'mobile') {
 
   
-switch (player1) {
-  case 'samuraiMack':
-    var avatar1 = mobileSettings.players.samuraiMack
+// switch (player1) {
+//   case 'samuraiMack':
+//     var avatar1 = mobileSettings.players.samuraiMack
 
-    break
+//     break
 
-  case 'kenji':
-    var avatar1 = mobileSettings.players.kenji
+//   case 'kenji':
+//     var avatar1 = mobileSettings.players.kenji
 
-    break
-  case 'wizard':
-    var avatar1 = mobileSettings.players.wizard
+//     break
+//   case 'wizard':
+//     var avatar1 = mobileSettings.players.wizard
 
-    break
-  case 'martial':
-    var avatar1 = mobileSettings.players.martial
+//     break
+//   case 'martial':
+//     var avatar1 = mobileSettings.players.martial
 
-    break
-  case 'commander':
-    var avatar1 = mobileSettings.players.commander
+//     break
+//   case 'commander':
+//     var avatar1 = mobileSettings.players.commander
 
-    break
-  case 'viking':
-    var avatar1 = mobileSettings.players.viking
+//     break
+//   case 'viking':
+//     var avatar1 = mobileSettings.players.viking
 
-    break
-    case 'wizard2':
-    var avatar1 = mobileSettings.players.wizard2
+//     break
+//     case 'wizard2':
+//     var avatar1 = mobileSettings.players.wizard2
 
-    break
-  default:
-    break
-}
+//     break
+//   default:
+//     break
+// }
 
-switch (player2) {
-  case 'samuraiMack':
-    var avatar12 = mobileSettings.players.samuraiMack
+// switch (player2) {
+//   case 'samuraiMack':
+//     var avatar12 = mobileSettings.players.samuraiMack
 
-    break
+//     break
 
-  case 'kenji':
-    var avatar2 = mobileSettings.players.kenji
+//   case 'kenji':
+//     var avatar2 = mobileSettings.players.kenji
 
-    break
-  case 'wizard':
-    var avatar2 = mobileSettings.players.wizard
+//     break
+//   case 'wizard':
+//     var avatar2 = mobileSettings.players.wizard
 
-    break
-  case 'martial':
-    var avatar2 = mobileSettings.players.martial
+//     break
+//   case 'martial':
+//     var avatar2 = mobileSettings.players.martial
 
-    break
-  case 'commander':
-    var avatar2 = mobileSettings.players.commander
+//     break
+//   case 'commander':
+//     var avatar2 = mobileSettings.players.commander
 
-    break
-  case 'viking':
-    var avatar2 = mobileSettings.players.viking
+//     break
+//   case 'viking':
+//     var avatar2 = mobileSettings.players.viking
 
-    break
-    case 'wizard2':
-    var avatar2 = mobileSettings.players.wizard2
+//     break
+//     case 'wizard2':
+//     var avatar2 = mobileSettings.players.wizard2
 
-    break
-  default:
-    break
-}
-}
+//     break
+//   default:
+//     break
+// }
+// }
 
 
 

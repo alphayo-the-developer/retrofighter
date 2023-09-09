@@ -63,7 +63,7 @@
   }
   
   /* Page Styling */
-  ::-moz-selection {
+  ::--moz-selection {
     background: #ffc44d;
     color: #fff;
   }
@@ -150,6 +150,9 @@
     box-shadow: 0 0 10px #fa5433;
   }
 
+#displayText {
+  font-size: 16px;
+}
 
 
 
@@ -160,8 +163,7 @@
 
 
 
-
-  #container {
+  /* #fightdisplay {
     position: absolute;
     margin: auto;
     width: 100vw;
@@ -170,9 +172,9 @@
     bottom: 0;
 
     filter: url(#threshold) blur(0.6px);
-}
+} */
 
-#text1,
+/* #text1,
 #text2 {
     position: absolute;
     width: 100%;
@@ -184,4 +186,25 @@
     text-align: center;
 
     user-select: none;
+} */
+
+.disone {
+  display: none;
+  opacity: 0;
+}
+
+.distwo {
+  display: none;
+  opacity: 0;
+}
+
+.disthree {
+  /* display: none; */
+
+}
+
+.disfight {
+  padding-right: 50px;
+  display: none;
+  opacity: 0;
 }

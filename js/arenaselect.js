@@ -79,3 +79,6 @@ function changeTitle(title) {
 arenanext.addEventListener('click',()=>{
   back1 = currenttitle;
 })
+
+
+

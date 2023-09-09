@@ -1,0 +1,11 @@
+.text span {
+    opacity: 0;
+}
+
+.text span.revealed {
+    opacity: 1;
+}
+
+.text span.green {
+    color: #27ae60;
+}

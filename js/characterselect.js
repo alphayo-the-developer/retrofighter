@@ -5,28 +5,38 @@ const p2Name = document.querySelector('#p2name')
 
 const p1wizard = document.querySelector('#p1wizard')
 const p1martial = document.querySelector('#p1martial')
-const p1wizard2 = document.querySelector('#p1samuraimack')
+const p1wsamuraimack = document.querySelector('#p1samuraimack')
 const p1viking = document.querySelector('#p1viking')
 const p1commander = document.querySelector('#p1commander')
-const p1SmallImgs = [p1wizard, p1martial, p1wizard2, p1viking, p1commander]
+const p1SmallImgs = [p1wizard, p1martial, p1wsamuraimack, p1viking, p1commander]
 
 const p2wizard = document.querySelector('#p2wizard')
 const p2martial = document.querySelector('#p2martial')
-const p2wizard2 = document.querySelector('#p2samuraimack')
+const p2samuraimack = document.querySelector('#p2samuraimack')
 const p2viking = document.querySelector('#p2viking')
 const p2commander = document.querySelector('#p2commander')
 
-const p2SmallImgs = [p2wizard, p2martial, p2wizard2, p2viking, p2commander]
+const p2SmallImgs = [p2wizard, p2martial, p2samuraimack, p2viking, p2commander]
 var lastclicked1 = p1wizard
 
+
+
+var char = 'p1wizard';
 for (let index = 0; index < p1SmallImgs.length; index++) {
   const element = p1SmallImgs[index]
   element.addEventListener('click', (e) => {
+    e.preventDefault();
     lastclicked1.className = ''
     e.currentTarget.className = 'border'
-    p1LargeImg.src = e.currentTarget.src
+    // p1LargeImg.src = e.currentTarget.src
     lastclicked1 = e.currentTarget
     changeName(e)
+    // characterinit(e.currentTarget)
+    char = e.currentTarget.id;
+
+    // switchChar(char)
+    // console.log(e.currentTarget.id)
+
   })
 }
 
@@ -42,6 +52,7 @@ for (let index = 0; index < p2SmallImgs.length; index++) {
   })
 }
 
+// p1Select
 function changeName(element) {
   switch (element.currentTarget.id) {
     case 'p1wizard':
@@ -93,3 +104,134 @@ function changeName(element) {
       break
   }
 }
+
+// IDLES
+
+// const characterP1Canvas = document.querySelector('#p1Select')
+// const p1C = characterP1Canvas.getContext('2d')
+
+class CharacterShowCase {
+  constructor(image, x, y, frameMax,scale) {
+    this.x = x
+    this.y = y
+    this.image = image
+    // this.image = new Image();
+    // this.image.src = 'img\martial\Idle.png';
+    this.frameMax = frameMax
+    this.spriteWidth = this.image.width / this.frameMax
+    this.spriteHeight = this.image.height
+    this.scale = scale;
+    this.frame = 0
+    this.timer = 0
+  }
+  update() {
+    this.timer++
+    if (this.timer % 6 === 0) {
+      this.frame++
+    }
+    if (this.frame >= this.frameMax) {
+      this.frame = 0
+    }
+  }
+  draw() {
+    this.update()
+    // console.log(this.image)
+    p1C.drawImage(
+      this.image,
+      this.spriteWidth * this.frame,
+      0,
+      this.spriteWidth,
+      this.spriteHeight,
+      this.x,
+      this.y,
+      characterP1Canvas.width * this.scale,
+      characterP1Canvas.height * this.scale
+    )
+  }
+}
+
+const tester = new CharacterShowCase(p1wizard, 0, 0, 6,1.2)
+const tester1 = new CharacterShowCase(p1martial, 0, 0, 10,1.2)
+const tester2 = new CharacterShowCase(p1wsamuraimack, 0, 0, 8,1.2)
+const tester3 = new CharacterShowCase(p1viking, 0, 0, 6,1)
+const tester4 = new CharacterShowCase(p1commander, 0, 0, 5,1)
+
+const showcases = []
+// var drawableImage;
+// function drawableImages(image){
+//   drawableImage = new CharacterShowCase(image, 0, 0, 8)
+// }
+
+showcases.push(tester)
+showcases.push(tester1)
+showcases.push(tester2)
+showcases.push(tester3)
+showcases.push(tester4)
+
+
+var characterP1Canvas = document.querySelector('#p1Select');
+var p1C = characterP1Canvas.getContext('2d');
+// var mar =  new CharacterShowCase(p1martial,0,0,8);
+function characterinit(image) {
+  characterP1Canvas = document.querySelector('#p1Select')
+  p1C = characterP1Canvas.getContext('2d')
+  mar = new CharacterShowCase(image,0,0,10);
+  
+  
+  // console.log(characterP1Canvas.width,characterP1Canvas.height)
+  // const mar = new CharacterShowCase(image,0,0,10);
+  // showcases.splice(0,1)
+  // showcases.push(new CharacterShowCase(image, 0, 0, 8))
+  // drawableImage = new CharacterShowCase(image, 0, 0, 8);
+  // drawableImages(image)
+}
+
+// characterinit(p1wizard)
+
+function switchChar(char) {
+  console.log(char)
+  switch (char) {
+    case 'p1martial':
+      mar = new CharacterShowCase(p1martial,0,0,8);
+      console.log(mar)
+  
+      break;
+  
+      case 'p1wizard':
+      mar = new CharacterShowCase(p1wizard,0,0,10);
+      console.log(mar)
+  
+      break;
+  
+    default:
+      break;
+  }  
+}
+
+
+
+function animate() {
+  p1C.clearRect(0, 0, characterP1Canvas.width, characterP1Canvas.height)
+  // c.drawImage(image, 0, 0,characterP1Canvas.width,characterP1Canvas.height)
+  // mar.draw()
+  // if(mar) mar.draw()
+
+  requestAnimationFrame(animate)
+// tester.draw()
+  // tester.draw()
+  // drawableImage.draw()  
+  // showcases[0].draw()
+  for (let index = 0; index < showcases.length; index++) {
+    const element = showcases[index]
+    if(char == element.image.id) element.draw()
+    // if (showcases[index].frame > showcases[index].frameMax) {
+    //   showcases.splice(index,1);
+    //   index--
+    // }
+  //   // console.log(showcases[index].frame >  showcases[index].frameMax-6)
+
+  }
+  // console.log(showcases)
+}
+animate()
+

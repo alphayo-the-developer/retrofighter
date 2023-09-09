@@ -23,6 +23,7 @@ class Sprite {
   }
 
   draw() {
+    // console.log(this.image.height)
     c.drawImage(
       this.image,
       this.framesCurrent * (this.image.width / this.framesMax),
@@ -36,8 +37,21 @@ class Sprite {
     )
   }
 
-  restart() {
-    this.position.x = this.startpositionX
+  restart(name) {
+    console.log(startP1,startP2)
+    if(name == 'player'){
+      this.position.x = startP1;
+
+    }else {
+      if(player2 === 'commander'){
+        this.position.x = ((startP2)*-1 - 700);
+      }else if (player2 === 'viking'){
+        this.position.x = ((startP2)*-1 ) - 1000;
+      } else {
+        this.position.x = ((startP2)*-1 )- 1500;
+      }
+
+    }
   }
 
   animateFrames() {
@@ -70,6 +84,7 @@ class Fighter extends Sprite {
     sprites,
     attackBox = { offset: {}, width: undefined, height: undefined },
     bounds,
+    positionOffset,
     collisionOffset
   }) {
     super({
@@ -103,6 +118,7 @@ class Fighter extends Sprite {
     this.dead = false
     this.bounds = bounds
     this.collisionOffset = collisionOffset
+    this.positionOffset = positionOffset
 
     for (const sprite in this.sprites) {
       sprites[sprite].image = new Image()
@@ -137,24 +153,62 @@ class Fighter extends Sprite {
 
     // draw the attack box
 
-    c.fillStyle = 'green'
-    c.beginPath()
-    c.fillRect(
-      this.attackBox.position.x,
-      this.attackBox.position.y,
-      this.attackBox.width,
-      this.attackBox.height
-    )
-    c.stroke()
+    // c.fillStyle = 'green'
+    // c.beginPath()
+    // c.fillRect(
+    //   this.attackBox.position.x,
+    //   this.attackBox.position.y,
+    //   this.attackBox.width,
+    //   this.attackBox.height
+    // )
+    // c.stroke()
 
+    // draw the character box
+
+    // c.fillStyle = 'red'
+    // c.beginPath()
+    // c.fillRect(
+    //   this.position.x + this.positionOffset,
+    //   this.position.y,
+    //   this.width,
+    //   this.height
+    // )
+    // c.stroke()
+
+
+    // c.fillStyle = 'black'
+    // c.beginPath()
+    // c.fillRect(
+    //   this.position.x,
+    //   this.position.y,
+    //   this.width,
+    //   this.height
+    // )
+    // c.stroke()
+
+
+
+    // c.fillStyle = 'purple'
+    // c.beginPath()
+    // c.fillRect(
+    //   this.position.x + this.positionOffset - (this.width* this.scale),
+    //   this.position.y,
+    //   this.width,
+    //   this.height
+    // )
+    // c.stroke()
+
+
+    
     this.position.x += this.velocity.x
     this.position.y += this.velocity.y
 
     // gravity function
     if (this.position.y + this.height + this.velocity.y >= canvas.height - 80) {
       this.velocity.y = 0
-      this.position.y = 464
-    } else this.velocity.y += this.gravity
+    } else {
+      this.velocity.y += this.gravity
+    }
     // console.log(this.position.y)
   }
 
@@ -166,7 +220,7 @@ class Fighter extends Sprite {
   }
 
   takeHit() {
-    this.position.x = this.position.x - 50;
+    if(!xBound)this.position.x = this.position.x - 50;
     this.health -= 5
 
     if (this.health <= 0) {
@@ -190,11 +244,11 @@ class Fighter extends Sprite {
     )
       return
 
-    if (
-      this.image === this.sprites.attack2.image &&
-      this.framesCurrent < this.sprites.attack2.framesMax - 1
-    )
-      return
+    // if (
+    //   this.image === this.sprites.attack2.image &&
+    //   this.framesCurrent < this.sprites.attack2.framesMax - 1
+    // )
+    //   return
 
     // override when fighter gets hit
     if (
@@ -216,6 +270,8 @@ class Fighter extends Sprite {
           this.image = this.sprites.run.image
           this.framesMax = this.sprites.run.framesMax
           this.framesCurrent = 0
+          console.log(this.image)
+
         }
         break
       case 'jump':
@@ -289,8 +345,8 @@ class AudioManager {
   play() {
     this.source.currentTime = this.times.start
     this.source.play()
-    if (this.source.currentTime > this.times.end) {
-      this.pause()
-    }
+    // if (this.source.currentTime > this.times.end) {
+    //   this.pause()
+    // }
   }
 }

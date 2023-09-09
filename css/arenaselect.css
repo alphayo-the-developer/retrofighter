@@ -23,7 +23,7 @@ body {
 }
 .info {
     display: grid;
-    grid-template-rows: 50% 40% 10%;
+    grid-template-rows: 20% 40% 30%;
     grid-template-columns: 100%;
     margin-left: 1.5rem;
 }
