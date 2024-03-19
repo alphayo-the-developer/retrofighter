@@ -47,6 +47,11 @@
   height: 100%;
 }
 
+#p2Select {
+  width: 100%;
+  height: 100%;
+}
+
 /* 
 #p1wizard {
   visibility: hidden;

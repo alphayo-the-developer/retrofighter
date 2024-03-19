@@ -68,6 +68,17 @@ function rectangularCollision2({ rectangle1, rectangle2 }) {
   )
 }
 
+function throwrectangularCollision2({ rectangle1, rectangle2 }) {
+  return (
+    rectangle1.x +
+    rectangle2.collisionOffset>=
+      rectangle2.position.x * -1 + rectangle2.positionOffset &&
+    rectangle1.y + rectangle1.height >=
+      rectangle2.position.y &&
+      rectangle1.y <= rectangle2.position.y + rectangle2.height
+  )
+}
+
 function playerCollision({ rectangle1, rectangle2 }) {
   return (
     rectangle1.position.x + rectangle1.collisionOffset + 100 >=
@@ -81,19 +92,32 @@ function playerCollision({ rectangle1, rectangle2 }) {
 //       (rectangle2.position.y)*-1 &&
 //     rectangle1.attackBox.position.y <= (rectangle2.position.y)*-1 + rectangle2.height
 
+
+var stickEl = document.querySelector('#stick2')
+var touchEl = document.querySelector('#fightBtns')
+
 function determineWinner({ player, enemy, timerId }) {
   clearTimeout(timerId)
   document.querySelector('#displayText').style.display = 'flex'
-  canAnimate = false
+  
+  setTimeout(() => {
+    canAnimate = false
+ 
+  }, 6000);
   //   reduceTime = false
   if (player.health === enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Tie'
     if (timing === 'fight') {
       setTimeout(() => {
         document.querySelector('#displayText').style.display = 'none'
+        document.querySelector('#continue').style.display = 'none'
 
         modalContainer.style.display = 'block'
         modalContainer.classList.add('active')
+
+
+        stickEl.style.display = 'none'
+        touchEl.style.display = 'none'
         // timing = 'end fight'
       }, 6000)
     }
@@ -102,20 +126,29 @@ function determineWinner({ player, enemy, timerId }) {
     if (timing === 'fight') {
       setTimeout(() => {
         document.querySelector('#displayText').style.display = 'none'
+        document.querySelector('#continue').style.display = 'none'
 
         modalContainer.style.display = 'block'
         modalContainer.classList.add('active')
-        timing = 'end fight'
+
+        
+        stickEl.style.display = 'none'
+        touchEl.style.display = 'none'
+        // timing = 'end fight'
       }, 6000)
     }
   } else if (player.health < enemy.health) {
     if (timing === 'fight') {
       setTimeout(() => {
         document.querySelector('#displayText').style.display = 'none'
+        document.querySelector('#continue').style.display = 'none'
 
         modalContainer.style.display = 'block'
         modalContainer.classList.add('active')
-        timing = 'end fight'
+
+        stickEl.style.display = 'none'
+        touchEl.style.display = 'none'
+        // timing = 'startFight'
       }, 6000)
     }
     document.querySelector('#displayText').innerHTML = `${player2} wins`

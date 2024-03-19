@@ -125,10 +125,10 @@ function startFightntro() {
 
 
 
-import { gsap } from "../gsap/index.js";
-var tl = gsap.timeline();
+// import { gsap } from "../gsap/index.js";
+// var tl = gsap.timeline();
 
-export function startSequence() {
+var startSequence =  function () {
 
 
 

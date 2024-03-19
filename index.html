@@ -38,7 +38,6 @@
     </style>
   </head>
   <body class="body19">
-
 <!--start Start game -->
 
 <div class="bodyStart" style="display: flex;" id="startgame" >
@@ -84,7 +83,7 @@
                   d="M0 31.479c0 0.276 0.224 0.5 0.5 0.5h31.111c0.067 0 0.132-0.013 0.193-0.039s0.116-0.063 0.162-0.109c0.001-0.001 0.002-0.001 0.003-0.002 0.003-0.003 0.003-0.009 0.007-0.012 0.051-0.055 0.084-0.122 0.107-0.195 0.007-0.023 0.010-0.045 0.014-0.069 0.004-0.025 0.015-0.047 0.015-0.073 0-0.040-0.014-0.075-0.023-0.112-0.003-0.014 0.003-0.028-0.002-0.042l-3.16-9.715c-0.024-0.075-0.066-0.144-0.122-0.199l-17.117-17.118c-0.018-0.028-0.031-0.058-0.055-0.083l-3.739-3.739c-0.607-0.607-1.595-0.607-2.203 0l-5.235 5.235c-0.294 0.294-0.456 0.685-0.456 1.101s0.162 0.808 0.456 1.102l3.656 3.656c0.018 0.027 0.030 0.058 0.054 0.082l17.090 17.205c0.059 0.060 0.131 0.103 0.212 0.127l6.713 2h-27.681c-0.276-0.001-0.5 0.223-0.5 0.499zM6.362 10.161l15.687 15.486-0.577 2.002-16.245-16.353 1.135-1.135zM22.816 25l-15.748-15.545 2.437-2.437 15.607 15.648v2.334h-2.296zM25.735 21.875l-15.523-15.564 1.039-1.039 16.211 16.211-1.727 0.392zM22.988 26h2.624c0.276 0 0.5-0.224 0.5-0.5v-2.685l2.007-0.456 2.723 8.37-8.488-2.529 0.634-2.2zM1 6.808c0-0.149 0.058-0.288 0.163-0.394l5.235-5.235c0.217-0.217 0.57-0.218 0.789 0l3.372 3.372-6.023 6.023-3.372-3.372c-0.106-0.105-0.164-0.245-0.164-0.394z"
                 ></path>
               </svg> -->
-              <img src="./face-to-face.png" alt="" srcset="" class="iconimg">
+              <!-- <img src="./face-to-face.png" alt="" srcset="" class="iconimg"> -->
               <span class="links__text" class="links__icon">VS</span>
             </a>
           </li>
@@ -159,15 +158,15 @@
         <img src="/img/Wizard/Idle.png" alt=""   class="border"/>
 
         </div> -->
-        <img src="/img/Wizard/Idle.png" alt=""  id="p1wizard" class="border"/>
-        <img src="/img/martial/Idle.png" alt="" id="p1martial" />
+        <img src="./img/Wizard/Idle.png" alt=""  id="p1wizard" class="border"/>
+        <img src="./img/martial/Idle.png" alt="" id="p1martial" />
         
         <!-- <div id="martial1">
         <img src="/img/martial/Idle.png" alt="" id="p1martial" style="visibility: hidden;"/>
         </div> -->
-        <img src="/img/samuraiMack/Idle.png" alt="" id="p1samuraimack"/>
-        <img src="/img/viking/Idle.png" alt="" id="p1viking"/>
-        <img src="/img/commander/Idle.png" alt="" id="p1commander"/>
+        <img src="./img/samuraiMack/Idle.png" alt="" id="p1samuraimack"/>
+        <img src="./img/viking/Idle.png" alt="" id="p1viking"/>
+        <img src="./img/commander/Idle.png" alt="" id="p1commander"/>
       </div>
       <div class="logo">
           <div class="bodyCharcter">
@@ -185,16 +184,19 @@
           <p>vs</p>
       </div>
       <div class="player1img" id="player2img">
-        <img src="/img/background red.png" alt="" id="p2wizard" class="border"/>
-        <img src="/img/background red.png" alt="" id="p2martial"/>
-        <img src="/img/background red.png" alt="" id="p2samuraimack"/>
-        <img src="/img/background red.png" alt="" id="p2viking"/>
-        <img src="/img/background red.png" alt="" id="p2commander"/>
+        <img src="./img/Wizard/Idle.png" alt="" id="p2wizard" class="border"/>
+        <img src="./img/martial/Idle.png" alt="" id="p2martial"/>
+        <img src="./img/samuraiMack/Idle.png" alt="" id="p2samuraimack"/>
+        <img src="./img/viking/Idle.png" alt="" id="p2viking"/>
+        <img src="./img/commander/Idle.png" alt="" id="p2commander"/>
       </div>
     </div>
     <div class="player2">
-      <img src="/img/background green.png" alt="" class="largeImg"id="p2largimg"/>
-      <p class="name" id="p2name">Samurai mack</p>
+      <div class="largeImg">
+        <canvas id="p2Select"></canvas>
+      </div>
+      <!--  <img src="/img/background green.png" alt="" class="largeImg"id="-"/> -->
+      <p class="name" id="p2name">Wizard</p> 
     </div>
     <a  id="next">Next</a>
   <a id="back">Back</a>
@@ -290,7 +292,39 @@
               width: 100%;
             "
           ></div>
+        
+          <!-- player stamina -->
+
+          <!-- <div
+          style="
+            position: relative;
+            width: 50%;
+            top: 35px;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 4px solid rgb(196, 226, 25);
+            border-left: 4px solid white;
+            border-right: 4px solid white;
+            border-bottom: 4px solid white;
+          "
+        >
+          <div
+            id="playerStamina"
+            style="
+              position: absolute;
+              background: #34d33a;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+            "
+          ></div>
+        </div> -->
+
+        
         </div>
+
+       
   
         <!-- timer -->
         <div
@@ -375,11 +409,11 @@
         style="
           position: absolute;
           font-size: 20px;
-          padding: 10px;
+          padding: 8px;
           top: 10px;
-          left: 80%;
+          left: 90%;
         "
-        class="open pause"
+        class="open"
       >
         Pause
       </button>
@@ -400,7 +434,7 @@
           <div class="modal-wrap">
             <button class="close" id="continue">Resume</button>
             <button class="close" id="restart">Retart</button>
-            <a href="http://">Select Characters</a>
+            <button class="close" id="selectCharacter">Select Characters</button>
             <a href="http://">Settings</a>
             <a id="quitgame">Quit Game</a>
           </div>
@@ -518,17 +552,28 @@
       <img src="img/buttons/joystick-red.png" style="position: absolute; left: 32px; top: 32px; transition: all 0.2s ease 0s; transform: translate3d(0px, 0px, 0px);"/>		
       </div>
     </div>  -->
-    <div style="border: 1px solid blue; width: 128px; position: absolute; left:210px; top:150px;">
+    <div id="stick2" style=" width: 128px; position: absolute; left:5%; top:70%; display:none">
       <img src="img/buttons/Circle.png" style="width: 125px; height: 125px;">
       <div id="stick1" style="position: absolute; width: 40px; height: 40px; left: 43px; top: 43px; transition: all 0.2s ease 0s; transform: translate3d(0px, 0px, 0px);">
       <img src="img/buttons/joystick-red.png" style="width: 100%;">		
       </div>
     </div>
+    <div id="fightBtns"  style="position: absolute; right:5%; top:70%;  display:none; grid-template-columns: 50% 50%; width: 170px; height: 100px;" >
+      <img src="./img/buttons/Cross.png" alt="" srcset="" id="touch1" style="width: 100%; height:100%">
+      <img src="./img/buttons/Triangle.png" alt="" srcset="" id="touch2" style="width: 100%; height:100%">
+      <img src="./img/buttons/Square.png" alt="" srcset="" id="touch3" style="grid-column-start: 1; justify-self: center; width: 90%; height:90%; margin-left:70px">
+      <img src="./img/buttons/Square.png" alt="" srcset="" id="touch4" style="grid-column-start: 1; justify-self: center; width: 90%; height:90%; margin-left:70px">
+    </div>
     <!-- <script
-    src="/js/gsap.min.js"-
+    src="/js/gsap.min.js"
     
   ></script> -->
-      <script>
+  <script  src="./data/data.js"></script>
+
+  <script src="mm.js"></script>
+
+<script >
+        // import init from '/mm.js'
         const pages = {
           startgame: {
             change:"flex",
@@ -559,26 +604,30 @@
         const back_arenaselect = document.querySelector("#characterback");
         const go_gameplay = document.querySelector("#arenanext");
         const back_mainmenu1 = document.querySelector("#quitgame");
+        const back_characterselectModal = document.querySelector("#selectCharacter");
         const background1soundEl = document.getElementById('background1')
         
         go_mainmenu.addEventListener("click",()=>{
 
-          background1soundEl.play();
+          // background1soundEl.play();
           pages.startgame.elem.style.display = 'none';
           pages.mainmenu.elem.style.display = pages.mainmenu.change;
+          console.log(pages)
         })
 
         go_characterselect.addEventListener("click",()=>{
           pages.mainmenu.elem.style.display = 'none';
           pages.characterselect.elem.style.display = pages.characterselect.change;
-
+        
         })
 
         go_arenaselect.addEventListener("click",()=>{
-          pages.characterselect.elem.style.display = 'none';
+          if(player1 !== player2){pages.characterselect.elem.style.display = 'none';
           pages.arenaselect.elem.style.display = pages.arenaselect.change;
           go_arenaselect.style.display = 'none';
-          back_mainmenu.style.display = 'none';
+          back_mainmenu.style.display = 'none';}else {
+            console.log("NO MIRROR MATCH")
+          }
         })
 
         go_gameplay.addEventListener("click",()=>{
@@ -609,6 +658,46 @@
           pages.mainmenu.elem.style.display = pages.mainmenu.change;
         })
         
+
+        back_characterselectModal.addEventListener("click",()=>{
+          go_arenaselect.style.display = 'block';
+          back_mainmenu.style.display = 'block';
+          
+          pages.gameplay.elem.style.display = 'none';
+          // pages.mainmenu.elem.style.display = pages.mainmenu.change;
+          pages.characterselect.elem.style.display = pages.characterselect.change;
+
+          // modalContainer.classList.remove('active')
+          // modalContainer.style.display = 'none'
+
+
+          modalContainer.classList.remove('active');
+
+          window.setTimeout(function () {
+          modalContainer.style.display = 'none'
+          }, 3000)
+          timing = 'dialog'
+
+          timer = 60
+          document.querySelector('#timer').innerHTML = timer
+         canAnimate = false
+        reduceTime = false
+        
+          player.health = 100;
+         enemy.health = 100;
+        gsap.to('#enemyHealth', {
+          width: 100 + '%'
+        })
+        gsap.to('#playerHealth', {
+          width: 100 + '%'
+        })
+
+        canAnimate = false
+        reduceTime = false
+
+
+        })
+
         back_mainmenu1.addEventListener("click",()=>{
           go_arenaselect.style.display = 'block';
           back_mainmenu.style.display = 'block';
@@ -633,14 +722,17 @@
          canAnimate = false
         reduceTime = false
         
-         //  player.health = 100;
-        //  enemy.health = 100;
+          player.health = 100;
+         enemy.health = 100;
         gsap.to('#enemyHealth', {
           width: 100 + '%'
         })
         gsap.to('#playerHealth', {
           width: 100 + '%'
         })
+
+        canAnimate = false
+        reduceTime = false
 
 
         })
@@ -649,26 +741,41 @@
         const buttons = [go_mainmenu,go_arenaselect,go_characterselect,go_gameplay]
 
       </script>
-    <script
+    <!-- <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
       integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    ></script>
+    ></script> -->
     <script type="module">
       import { gsap } from "../gsap/index.js";
       window.gsap = gsap
     </script>
+    
+    <!-- <script src="js/audio.js"></script> -->
+    <script src="js/inputHandler.js"></script>
+    <script src="js/pausemenu.js"></script>
     <script src="js/utils.js"></script>
-    <script src="js/fightIntro.js" type="module"></script>
-<script src="./js/characterselect.js"></script>
-<script src="./js/arenaselect.js"></script>
+    <script src="js/fightIntro.js" ></script>
+    <script src="js/classes1.js"></script>
+    <script src="js/network.js"></script>
+    <script src="js/Effect.js"></script>
+    <script src="js/EffectController.js"></script>
+    <script src="js/BehaviorTree/src/BehaviorTree.js"></script>
+    <script src="js/BehaviorTree/src/constants.js"></script>
+    <script src="js/BehaviorTree/src/Node.js"></script>
+    <script src="js/BehaviorTree/src/Task.js"></script>
+    <script src="js/BehaviorTree/src/BranchNode.js"></script>
+    <script src="js/BehaviorTree/src/Sequence.js"></script>
+    <script src="js/BehaviorTree/src/Selector.js"></script>
+
+    <!-- <script src="./js/characterselect2.js"></script> -->
+
+  <script  src="./js/characterselect.js"></script>
+  <script src="./js/arenaselect.js"></script>
   
     <!-- <script src="js/classes.js"></script>
-  
+
     <script src="index.js"></script> -->
-    <script src="./data/data.js"></script>
-    <script src="js/classes1.js"></script>
-    <script src="mm.js"></script>
   </body>
   

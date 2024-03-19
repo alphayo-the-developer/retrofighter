@@ -1,9 +1,14 @@
 var canPlay = false
-var player1 = "martial";
-var player2 = "wizard"
+window.player1 = "martial";
+window.player2 = "wizard"
+
 
 var gamesettings = {
   platform: 'desktop'
+}
+
+if(/Android|iPhone/i.test(navigator.userAgent)){
+  gamesettings.platform = 'mobile'
 }
 
 const settings = {
@@ -22,16 +27,16 @@ const settings = {
         y: 440
       },
       imageSrc: './img/samuraiMack/Idle.png',
-      framesMax: 8,
-      scale: 5,
+      framesMax: 10,
+      scale: 2,
       offset: {
-        x: 0,
-        y: 460
+        x: -100,
+        y: 160
       },
       sprites: {
         idle: {
           imageSrc: './img/samuraiMack/Idle.png',
-          framesMax: 8
+          framesMax: 7
         },
         run: {
           imageSrc: './img/samuraiMack/Run.png',
@@ -48,6 +53,93 @@ const settings = {
         attack1: {
           imageSrc: './img/samuraiMack/Attack1.png',
           framesMax: 6
+        },
+        attack2: {
+          imageSrc: './img/samuraiMack/Attack2.png',
+          framesMax: 6
+        },
+        takeHit: {
+          imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
+          framesMax: 4
+        },
+        death: {
+          imageSrc: './img/samuraiMack/Death.png',
+          framesMax: 6
+        }
+      },
+      attackBox: {
+        offset: {
+          x: 670,
+          y: 50
+        },
+        width: 170,
+        height: 50
+      },
+      positionOffset: 550,
+      collisionOffset: 1150
+    },
+    Ryu: {
+      position: {
+        x: -200,
+        y: 100
+      },
+      velocity: {
+        x: 0,
+        y: 0
+      },
+      offset: {
+        x: 500,
+        y: 840
+      },
+      imageSrc: './img/ryu/idle.png',
+      framesMax: 8,
+      scale: 2,
+      offset: {
+        x: -100,
+        y: 260
+      },
+      sprites: {
+        idle: {
+          imageSrc: './img/ryu/idle.png',
+          framesMax: 8,
+          scale: 2,
+
+        },
+        moveF: {
+          imageSrc: './img/ryu/moveR.png',
+          framesMax: 11,
+          scale: 2.7,
+
+        },
+        crouch: {
+          imageSrc: './img/ryu/moveR.png',
+          framesMax: 11,
+          scale: 2.7,
+
+        },
+        run: {
+          imageSrc: './img/ryu/air combo.png',
+          framesMax: 25,
+        
+        },
+        jump: {
+          imageSrc: './img/ryu/jump.png',
+          framesMax: 7,
+          scale: 1.75
+
+        },
+        fall: {
+          imageSrc: './img/ryu/jump.png',
+          framesMax: 7,
+          scale: 1.75
+        },
+        attack1: {
+          imageSrc: './img/samuraiMack/Attack1.png',
+          framesMax: 6
+        },
+        lowkick: {
+          imageSrc: './img/ryu/low kick.png',
+          framesMax: 7
         },
         attack2: {
           imageSrc: './img/samuraiMack/Attack2.png',
